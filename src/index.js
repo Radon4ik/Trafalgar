@@ -1,12 +1,23 @@
-import './index.scss';
+"use strict";
 
-async function check() {
-    await fetch('https://google.com');
+import "./index.scss";
 
-}
+let offSet = 0;
 
-check().then(() => {
-    console.log("success");
-}).catch(() => {
-    console.log('error');
-})
+const sliderLine = document.querySelector(".slider__line");
+let sliderContainer = document.querySelector(".slider__container");
+
+document.querySelector(".slider__btn-right").addEventListener("click", () => {
+  offSet += 1120;
+
+  sliderLine.style.left = -offSet + "px";
+  let div = document.createElement("div");
+  console.log(sliderLine.style.left);
+});
+
+document.querySelector(".slider__btn-left").addEventListener("click", () => {
+  offSet -= 1120;
+
+  sliderLine.style.left = -offSet + "px";
+  console.log(sliderLine.style.left);
+});
